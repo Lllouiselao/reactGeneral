@@ -1,3 +1,18 @@
+# Expenditure table  
+
+This project foolows Uedmy [
+React - The Complete Guide (incl Hooks, React Router, Redux)
+](https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25597082#questions)
+
+The project using React.js to create a user interactable table which record different expenses with simple U.I.
+
+The table was category by Year and also could category by Expense Use
+
+
+
+
+
+
 # Getting Started with Create React App from Udemy Course 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
