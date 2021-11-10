@@ -1,7 +1,7 @@
 import react, { useState } from 'react';
 import './ExpenseForm.css'
 
-const ExpenseForm = () =>{
+const ExpenseForm = (props) =>{
     const [enteredTitle, setenteredTitle] = useState('');
     const [enteredAmount, setenteredAmount] = useState('');
     const [enteredDate, setenteredDate] = useState('');
@@ -54,8 +54,12 @@ const ExpenseForm = () =>{
             amount: enteredAmount,
             // convert date into an object since we only gater its string but we want date property
             date: new Date(enteredDate)
-        }
-        console.log(expenseData)
+        };
+
+        props.onSaveExpenseData(expenseData);
+        setenteredTitle('');
+        setenteredAmount('');
+        setenteredDate('');
     }
 
     return ( 
@@ -63,15 +67,21 @@ const ExpenseForm = () =>{
         <div className="new-expense__controls">
             <div className="new-expense__conntrol">
                 <label>Title</label>
-                <input type = "text" onChange = {titleChangeHandler}/>
+                <input type = "text" 
+                value = {enteredTitle}
+                onChange = {titleChangeHandler}/>
             </div>
             <div className="new-expense__conntrol">
                 <label>Amount</label>
-                <input type = "number" min="0.01" step = "0.01" onChange = {amountChangeHandler}/>
+                <input type = "number" min="0.01" step = "0.01" 
+                value = {enteredAmount}
+                onChange = {amountChangeHandler}/>
             </div>
             <div className="new-expense__conntrol">
                 <label>Date</label>
-                <input type = "date" min= "2019-01-01" max = "2022-12-31" onChange = {dateChangeHandler}/>
+                <input type = "date" min= "2019-01-01" max = "2022-12-31" 
+                value = {enteredDate}
+                onChange = {dateChangeHandler}/>
             </div>
             <div className = "new-expense__actions">
                 <button type = "submit">Add Expenses</button>
