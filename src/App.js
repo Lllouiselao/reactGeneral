@@ -3,7 +3,7 @@ import react, { useState } from "react";
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 
-// this is the initial expense data 
+// this is the initial expense data
 const DUMMY_EXPENSES = [
   {
     id: "e1",
@@ -27,26 +27,23 @@ const DUMMY_EXPENSES = [
 ];
 
 const App = () => {
- 
-  // initial was sent into the useState 
+  // initial was sent into the useState
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   // we want to put the expense(object) here into the const expense the array above
   // everytime update state by previous state using function to update the state array
-  const addExpenseDataHandler = expense =>{
-    setExpenses(prevExpenses =>{
+  const addExpenseDataHandler = (expense) => {
+    setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
-    
   };
 
-  return(
+  return (
     <div>
-      <NewExpense onExpense = {addExpenseDataHandler}/>
-      <Expenses items = {expenses}/>
+      <NewExpense onExpense={addExpenseDataHandler} />
+      <Expenses items={expenses} />
     </div>
   );
- 
-}
+};
 
 export default App;
